@@ -1,6 +1,7 @@
 <script setup>
 // Composition API
 import { onMounted} from "vue";
+import { TailwindPagination } from "laravel-vue-pagination";
 import usePosts from "@/composables/posts.js";
 
 const { posts, getPosts } = usePosts();
@@ -51,7 +52,7 @@ onMounted(() => {
                 </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200 divide-solid">
-                <tr v-for="post in posts" :key="post.id">
+                <tr v-for="post in posts.data" :key="post.id">
                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                         {{ post.id }}
                     </td>
@@ -62,11 +63,14 @@ onMounted(() => {
                         {{ post.content }}
                     </td>
                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                        {{ post.created_at }}
+                        {{ post.createdAt }}
                     </td>
                 </tr>
                 </tbody>
             </table>
+
+            <TailwindPagination :data="posts" @pagination-change-page="getPosts" class="mt-4" />
+
         </div>
     </div>
 </template>

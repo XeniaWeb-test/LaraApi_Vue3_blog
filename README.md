@@ -4,8 +4,7 @@
 
 ### About this project
 
-XeniaWeb Project - Laravel 10 Inertiajs Vue.js Tailwind Fullstack App
-
+XeniaWeb Project - Laravel 10 (API) Vite Vue.js Tailwind (SPA)
 ##
 
 ### License
