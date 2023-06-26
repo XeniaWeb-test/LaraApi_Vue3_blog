@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\Posts\IndexController as PostController;
+use App\Http\Controllers\Api\V1\Product\IndexController as ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('posts', PostController::class);
+Route::group([
+    'prefix' => 'v1',
+], function () {
+    Route::get('posts', PostController::class);
+    Route::get('products', ProductController::class);
+});
