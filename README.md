@@ -36,5 +36,8 @@ npm run dev
 ### Refresh Database
 ```sh
 ./vendor/bin/sail artisan migrate:fresh --force
+```
+### Refresh Database fake data
+```sh
 ./vendor/bin/sail artisan db:seed --force
 ```
