@@ -29,7 +29,7 @@ class StoreProductRequest extends FormRequest
             'title' => ['string', 'required'],
             'description' => ['nullable', 'string'],
             'price' => ['integer', 'required'],
-            'categoryId' => ['integer', 'required', ],
+            'categoryId' => ['integer', 'required' ],
         ];
     }
 }

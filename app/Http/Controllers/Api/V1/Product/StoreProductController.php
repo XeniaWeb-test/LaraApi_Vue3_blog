@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Resources\ProductResource;
 use App\UseCases\Product\Dto\StoreProductDto;
 use App\UseCases\Product\StoreProductUseCase;
+use Illuminate\Support\Facades\Storage;
 
 class StoreProductController extends Controller
 {
@@ -31,7 +32,9 @@ class StoreProductController extends Controller
 
         $image = $request->file('image');
         if (!empty($image) && $image->isValid()) {
-            $path = $image->store('/products', 'photos');
+//            Временный путь для локали
+//            $path = Storage::disk('photos')->url($image->store('/', 'photos'));
+            $path = $image->store('/', 'photos');
 
             $createFileDto->setImage($path);
         }
