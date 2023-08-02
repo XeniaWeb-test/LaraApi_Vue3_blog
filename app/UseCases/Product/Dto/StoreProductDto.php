@@ -10,11 +10,11 @@ class StoreProductDto
 
     private int $price;
 
-    private string $description;
+    private ?string $description = null;
 
     private int $categoryId;
 
-    private string $image;
+    private ?string $image = null;
 
     /**
      * @return string
@@ -81,17 +81,17 @@ class StoreProductDto
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getImage(): string
+    public function getImage(): ?string
     {
         return $this->image;
     }
 
     /**
-     * @param string $image
+     * @param ?string $image
      */
-    public function setImage(string $image): void
+    public function setImage(?string $image): void
     {
         $this->image = $image;
     }
