@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\Customer\StoreCustomerController;
 use App\Http\Controllers\Api\V1\Posts\IndexController as PostController;
 use App\Http\Controllers\Api\V1\Product\ShowProductController;
@@ -21,6 +22,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group([
+    'prefix' => 'auth',
+], function () {
+    Route::post('register', RegisterController::class)->withoutMiddleware(['auth:sanctum', 'verified']);
+});
+
+Route::group([
     'prefix' => 'v1',
 ], function () {
     Route::get('posts', PostController::class);
@@ -34,3 +41,5 @@ Route::group([
 
     Route::get('categories', CategoryController::class);
 });
+
+require __DIR__.'/auth.php';
